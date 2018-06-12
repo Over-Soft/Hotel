@@ -687,6 +687,12 @@ $sqlalquilertmp = $mysqli->query("select
                                     <input type="radio" name="txtformadepago" id="radio4" value="3" onClick="mostrando();calcularpagocompartido();">
                                     Ambas Formas </label>
                                 </span></td>
+  								<!--Descuento Global-->
+  								<td width="106" height="62"><span class="textoContenido" title="Agregar Descuento Global">Descuento Global</span></td>
+
+  								<td width="208" height="62"><input name="descuentoglobal" type="text" class="textbox" id="descuentoglobal" style="text-align:right; font-size:18px; background:#E4F8F9;" value="" ></td>
+
+  								<!-- Fin Descuento global-->
                                 <td width="131"><input name="txttotalproducto" type="hidden" id="txttotalproducto" value="<?php echo $xprodtotal;?>"></td>
                                 <td width="106" height="62"><span class="textoContenido">Total a Cobrar 
                                   <input name="txttotaltmp" type="hidden" id="txttotaltmp" value="<?php echo number_format(($xprecioalquiler+$xprodtotal),2);?>">
@@ -755,6 +761,32 @@ $_SESSION['xcliente'] = "";
 <script type="text/javascript">
 	$(function(){
 		/*Fechas*/
+		var descuento=0,t1=0,t2=0,Tot=0;
+		Tot=$("#txtcostototal").val();
+		$("#descuentoglobal").on("keyup",function(e){
+			e.preventDefault();
+			/*if($.isNumeric($('#descuentoglobal').val())){
+				if($("#descuentoglobal").val() >0){
+					descuento=parseFloat($('#descuentoglobal').val());					
+					t2=parseFloat($("#txtcostototal").val() - descuento);
+					
+					$("#txtcostototal").val(t2);
+				}else{
+					$("#txtcostototal").val(Tot);
+					$("#txttotaltmp").val(Tot);
+				}
+			}*/
+		})
+
+		$("#descuentoglobal").on("blur",function(e){
+			e.preventDefault();
+			/*if($("#descuentoglobal").val() >0){
+				$("#txttotaltmp").val(t2);
+			}else{
+				$("#txtcostototal").val(Tot);
+				$("#txttotaltmp").val(Tot);
+			}*/
+		})
 
 		$("#datepickerdos").on('change',function(e){
 			e.preventDefault();

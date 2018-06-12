@@ -22,7 +22,8 @@ $sqlalquiler = $mysqli->query("select
 	
 	alquilerhabitacion.comentarios,
 	alquilerhabitacion.nroorden,
-	alquilerhabitacion.codigo_respuesta
+	alquilerhabitacion.codigo_respuesta,
+	alquilerhabitacion.descuento
 	
 	from alquilerhabitacion inner join huesped on huesped.idhuesped = alquilerhabitacion.idhuesped
 	where alquilerhabitacion.idalquiler = '$xidalquiler' 
@@ -370,9 +371,9 @@ function PendientedePago(){
                                 <?php 
 								
 								if($tmpFila['12']==1){ //Estado Pago
-									$xprecioalquiler = $xprecioalquiler + $tmpFila['20'];
+									$xprecioalquiler = ($xprecioalquiler + $tmpFila['20']) - $xaFila[11];
 								}elseif($tmpFila['12']==0){
-									$precioalquilerpendiente = $precioalquilerpendiente + $tmpFila['20'];
+									$precioalquilerpendiente = ($precioalquilerpendiente + $tmpFila['20']) -  $xaFila[11];
 								}
 								echo tipoAlquiler($tmpFila['2']).' ('.$tmpFila['19'].')';
 								if($tmpFila['2'] != 4 &&  $tmpFila['2'] != 5){
@@ -613,6 +614,7 @@ function PendientedePago(){
                                 <td width="21%" height="24"><strong>Resumen del Cliente</strong></td>
                                 <td width="17%" height="24">Habitación: S/ <strong><?php echo number_format($xprecioalquiler,2);?></strong></td>
                                 <td width="18%" height="24">Consumo: S/ <?php echo number_format($xprodtotal,2);?></td>
+                                <td width="21%" height="24"><strong>Descuento: S/ <?php echo number_format(($xaFila[11]),2) ?></strong></td>
                                 <td width="21%" height="24"><strong>Importe Total: S/ <?php echo number_format(($xprecioalquiler + $xprodtotal),2) ?></strong></td>
                                 <td width="23%" height="24"> 
                                 <form name="frmdeuda" id="frmdeuda">

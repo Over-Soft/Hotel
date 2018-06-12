@@ -35,6 +35,7 @@
 	$xtotal = $_POST['txtcostototal'];
 	$xtotalhabitacion = $_POST['txtcostototalhabitacion']; //
 	$xtotalproducto = $_POST['txtcostototalproducto']; //
+	$descuento = $_POST['descuentoglobal']; //
 	
 	
 	
@@ -64,7 +65,8 @@
 		total,
 		idturno,
 		idusuario,
-		nroorden
+		nroorden,
+		descuento
 		
 		) values (
 		
@@ -78,7 +80,8 @@
 		'$xtotal',
 		'$xidturno',
 		'$idusuario',
-		'$txtnumero'
+		'$txtnumero',
+		'$descuento'
 		
 		)";
 		
@@ -335,9 +338,9 @@
 	}
 	
 	$consultaturno = "update ingresosturno set
-		totalhabitacion = totalhabitacion + $xtotalhabitacion,
+		totalhabitacion = (totalhabitacion + $xtotalhabitacion) - $descuento,
 		totalproducto =  totalproducto + $xtotalproducto,
-		totalefectivo = totalefectivo + $montoefectivo,
+		totalefectivo = (totalefectivo + $montoefectivo) - $descuento,
 		totalvisa = totalvisa + $montovisa
 		where idturno = '$xidturno'";
 		if($mysqli->query($consultaturno)){}
