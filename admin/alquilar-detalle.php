@@ -501,6 +501,23 @@ function PendientedePago(){
                                     </tr>
                                   </table></td>
                                 </tr>
+                                
+                                 <tr>
+                                  <td width="456" height="30" class="textoContenido"><table width="100%" border="0" cellspacing="1" cellpadding="1">
+                                    <tr>
+                                      <td width="134" height="30" class="textoContenido">Renovar Por 12 Hora</td>
+                                      <td width="71" height="30" class="textoContenido">S/ 
+                                       </td>
+                                      <td width="244" class="textoContenido">
+                                      	 <input name="txtprecioporhora12" type="text" class="textbox" required="required" id="txtprecioporhora12"  style="width:26%;" value="<?php echo $preciohora;?>">
+                                        <button type="button" class="btnnegro" style="border:0px; cursor:pointer;" onClick="document.frmrenovar.action='include/alquiler/prg_alquiler-agregar.php?idhabitacion=<?php echo $xidhabitacion.'&idalquiler='.$xidalquiler.'&idtipo=6';?>'; document.frmrenovar.submit(); "> <i class="fa fa-save"></i>  </button>
+                                        </td>
+                                    </tr>
+                                  </table></td>
+                                </tr>
+
+
+
                                 <tr>
                                   <td height="30" class="textoContenido"><div class="lineahorizontal" style="background:#00A230;"></div></td>
                                 </tr>
@@ -548,6 +565,20 @@ function PendientedePago(){
                                     </tr>
                                   </table></td>
                                 </tr>
+
+                                <tr>
+                                  <td height="30" class="textoContenido"><table width="100%" border="0" cellspacing="1" cellpadding="1">
+                                    <tr>
+                                      <td width="134" height="30" class="textoContenido">Renovar 1 D&iacute;a </td>
+                                      <td width="73" class="textoContenido">S/ 
+                                        </td>
+                                      <td width="240" class="textoContenido"> <input name="txtpreciodia12" type="text" id="txtpreciodia12" class="textbox" style="width:25%;"value="<?php /*echo ($preciodiario / 2);*/?>">
+                                       <button type="button" class="btnnegro" style="border:0px; cursor:pointer;" onClick="document.frmagregar.action='include/alquiler/prg_alquiler-agregar.php?idhabitacion=<?php echo $xidhabitacion.'&idalquiler='.$xidalquiler.'&idtipo=7';?>'; document.frmagregar.submit(); "> <i class="fa fa-save"></i></button></td>
+                                    </tr>
+                                  </table></td>
+                                </tr>
+                                
+
                                 <tr>
                                   <td height="30" class="textoContenido"><div class="lineahorizontal" style="background:#FFAF03;"> </div></td>
                                 </tr>

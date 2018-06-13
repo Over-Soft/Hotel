@@ -154,7 +154,7 @@
 				idusuario
 				
 				from alquilerhabitacion_detalle 
-				where idalquiler = '$this->idalquiler'  order by idalquilerdetalle asc
+				where idalquiler = '$this->idalquiler'   and estadopago!=2 order by idalquilerdetalle asc
 				");
 			$descripcion="";
 			$items=array();
