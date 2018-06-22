@@ -690,7 +690,7 @@ $sqlalquilertmp = $mysqli->query("select
   								<!--Descuento Global-->
   								<td width="106" height="62"><span class="textoContenido" title="Agregar Descuento Global">Descuento Global</span></td>
 
-  								<td width="208" height="62"><input name="descuentoglobal" type="text" class="textbox" id="descuentoglobal" style="text-align:right; font-size:18px; background:#E4F8F9;" value="" ></td>
+  								<td width="208" height="62"><input name="descuentoglobal" type="text" class="textbox" id="descuentoglobal" style="text-align:right; font-size:18px; background:#E4F8F9;" value="0" ></td>
 
   								<!-- Fin Descuento global-->
                                 <td width="131"><input name="txttotalproducto" type="hidden" id="txttotalproducto" value="<?php echo $xprodtotal;?>"></td>

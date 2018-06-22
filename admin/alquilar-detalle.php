@@ -371,9 +371,9 @@ function PendientedePago(){
                                 <?php 
 								
 								if($tmpFila['12']==1){ //Estado Pago
-									$xprecioalquiler = ($xprecioalquiler + $tmpFila['20']) - $xaFila[11];
+									$xprecioalquiler = ($xprecioalquiler + $tmpFila['20']) /*- $xaFila[11]*/;
 								}elseif($tmpFila['12']==0){
-									$precioalquilerpendiente = ($precioalquilerpendiente + $tmpFila['20']) -  $xaFila[11];
+									$precioalquilerpendiente = ($precioalquilerpendiente + $tmpFila['20']) /*-  $xaFila[11]*/;
 								}
 								echo tipoAlquiler($tmpFila['2']).' ('.$tmpFila['19'].')';
 								if($tmpFila['2'] != 4 &&  $tmpFila['2'] != 5){
@@ -509,7 +509,7 @@ function PendientedePago(){
                                       <td width="71" height="30" class="textoContenido">S/ 
                                        </td>
                                       <td width="244" class="textoContenido">
-                                      	 <input name="txtprecioporhora12" type="text" class="textbox" required="required" id="txtprecioporhora12"  style="width:26%;" value="<?php echo $preciohora;?>">
+                                      	 <input name="txtprecioporhora12" type="text" class="textbox" required="required" id="txtprecioporhora12"  style="width:26%;" value="">
                                         <button type="button" class="btnnegro" style="border:0px; cursor:pointer;" onClick="document.frmrenovar.action='include/alquiler/prg_alquiler-agregar.php?idhabitacion=<?php echo $xidhabitacion.'&idalquiler='.$xidalquiler.'&idtipo=6';?>'; document.frmrenovar.submit(); "> <i class="fa fa-save"></i>  </button>
                                         </td>
                                     </tr>
@@ -643,10 +643,10 @@ function PendientedePago(){
                             <tbody>
                               <tr class="textoContenido">
                                 <td width="21%" height="24"><strong>Resumen del Cliente</strong></td>
-                                <td width="17%" height="24">Habitación: S/ <strong><?php echo number_format($xprecioalquiler,2);?></strong></td>
+                                <td width="17%" height="24">Habitación: S/ <strong><?php echo number_format($xprecioalquiler - $xaFila[11],2);?></strong></td>
                                 <td width="18%" height="24">Consumo: S/ <?php echo number_format($xprodtotal,2);?></td>
                                 <td width="21%" height="24"><strong>Descuento: S/ <?php echo number_format(($xaFila[11]),2) ?></strong></td>
-                                <td width="21%" height="24"><strong>Importe Total: S/ <?php echo number_format(($xprecioalquiler + $xprodtotal),2) ?></strong></td>
+                                <td width="21%" height="24"><strong>Importe Total: S/ <?php echo number_format(($xprecioalquiler + $xprodtotal) - $xaFila[11],2) ?></strong></td>
                                 <td width="23%" height="24"> 
                                 <form name="frmdeuda" id="frmdeuda">
                                 <span style="color:#E1583E; font-weight:600;"> Pendiente de Pago: S/ <?php echo number_format($precioalquilerpendiente,2); ?> </span> <input name="txtpendientepago" type="hidden" id="txtpendientepago" value="<?php echo $precioalquilerpendiente;?>">
