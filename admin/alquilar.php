@@ -74,14 +74,14 @@ $sqlhabitacionprecio = $mysqli->query("select
 			$xpreciohora = $haFila['5'];
 			$xpreciohoraadicional = $haFila['10'];
 			$xpreciohuespedadicional = $haFila['11'];
-			$xpreciohora12=$haFila['18'];
+			echo $xpreciohora12=$haFila['17'];
 		}else{
 			//echo "Tarifa 2 - Domingo";
 			 $xpreciodiario = $haFila['6']; //$haFila['6']
 			 $xpreciohora = $haFila['7'];
 			 $xpreciohoraadicional = $haFila['10'];
 			 $xpreciohuespedadicional = $haFila['11'];
-			 $xpreciohora12=$haFila['17'];
+			 $xpreciohora12=$haFila['18'];
 		};
 		//Adicional 12H
 		
@@ -95,7 +95,11 @@ $sqlhabitacionprecio = $mysqli->query("select
 		$xpreciohora = $haFila['5'];
 		$xpreciohoraadicional = $haFila['10'];
 		$xpreciohuespedadicional = $haFila['11'];
-		$xpreciohora12=$haFila['17'];
+		if($hora > $horamedia){
+			$xpreciohora12=$haFila['17'];
+		}else{
+			$xpreciohora12=$haFila['17'];
+		}	
 		break;
 	case 5:
 		if($hora > $horamedia){
@@ -104,7 +108,7 @@ $sqlhabitacionprecio = $mysqli->query("select
 			$xpreciohora = $haFila['7'];
 			$xpreciohoraadicional = $haFila['10'];
 			$xpreciohuespedadicional = $haFila['11'];
-			$xpreciohora12=$haFila['17'];
+			$xpreciohora12=$haFila['18'];
 		}else{
 			//echo "Tarifa 1 - Viernes";
 			$xpreciodiario = $haFila['4'];
@@ -120,7 +124,7 @@ $sqlhabitacionprecio = $mysqli->query("select
 		$xpreciohora = $haFila['7'];
 		$xpreciohoraadicional = $haFila['10'];
 		$xpreciohuespedadicional = $haFila['11'];
-		
+		//echo $hora."-".$horamedia;
 		//Agregado para 12 horas V-S
 		if($hora > $horamedia){
 			//echo "Tarifa 2 - Viernes";
@@ -128,18 +132,20 @@ $sqlhabitacionprecio = $mysqli->query("select
 			$xpreciohora = $haFila['7'];
 			$xpreciohoraadicional = $haFila['10'];
 			$xpreciohuespedadicional = $haFila['11'];
-			$xpreciohora12=$haFila['17'];
+			$xpreciohora12=$haFila['18'];
 		}else{
 			//echo "Tarifa 1 - Viernes";
-			$xpreciodiario = $haFila['4'];
-			$xpreciohora = $haFila['5'];
+			
+			$xpreciodiario = $haFila['6'];
+			$xpreciohora = $haFila['7'];
 			$xpreciohoraadicional = $haFila['10'];
 			$xpreciohuespedadicional = $haFila['11'];
-			$xpreciohora12=$haFila['17'];
+			$xpreciohora12=$haFila['18'];
 		};
 		
 		break;
 	}
+	//echo $dia;
 	//Uso de Switch Case
 	
 	/*
